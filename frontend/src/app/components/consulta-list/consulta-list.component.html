@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Lista de Consultas</h2>
+    <a routerLink="/consultas/nova" class="btn btn-primary mb-3">Agendar Nova Consulta</a>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Médico</th>
+          <th>Data e Hora</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let consulta of consultas">
+          <td>{{ consulta.paciente }}</td>
+          <td>{{ consulta.medico }}</td>
+          <td>{{ consulta.data_consulta | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>
+            <a [routerLink]="['/consultas/editar', consulta.id]" class="btn btn-sm btn-warning me-2">Editar</a>
+            <button (click)="deletarConsulta(consulta.id)" class="btn btn-sm btn-danger">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

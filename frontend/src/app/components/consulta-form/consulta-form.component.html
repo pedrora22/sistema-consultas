@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>{{ isEditMode ? 'Editar Consulta' : 'Agendar Nova Consulta' }}</h2>
+    <form [formGroup]="consultaForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="paciente" class="form-label">Nome do Paciente</label>
+        <input type="text" id="paciente" formControlName="paciente" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="medico" class="form-label">Nome do Médico</label>
+        <input type="text" id="medico" formControlName="medico" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="data_consulta" class="form-label">Data e Hora da Consulta</label>
+        <input type="datetime-local" id="data_consulta" formControlName="data_consulta" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição (Opcional)</label>
+        <textarea id="descricao" formControlName="descricao" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="consultaForm.invalid">Salvar</button>
+      <a routerLink="/consultas" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+  </div>
